@@ -19,3 +19,10 @@ As a result of my Amazon purchase history, I have a surplus of parts… and as s
 I’ve also designed an enclosure to house all of this and keep it looking nice inside my dome. I’ll be happy to share the STLs for that if anyone is interested… but it’s pretty purpose specific to the board I’ve designed.
 
 All of that said, there have been several people that have asked me if I would build this for them, and I’m willing to do that. I’ve included a few options for how that can happen (purchasing arduinos, optional parts, etc) in the parts list spreadsheet. If you think that’s something you might be interested in, feel free to reach out and we can discuss what you might need.
+
+TO DO
+-----
+* Write up assembly instructions
+* Update schematic to reflect 100 ohm resistors, and include power indicator led
+* Continue working on v2 (sound add-on)
+
