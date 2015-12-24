@@ -1,9 +1,10 @@
 If you've found this repo, you're interested in adding internal electronics to your BB8 Dome.
-<div align=center"><img src="https://scontent-iad3-1.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/10603798_10153226422607761_3631755225023624732_n.jpg?oh=16adb8e8d58f0730d4804b3a3ccf2d0d&oe=5714BCDA" width=320></div>
+<img src="https://scontent-iad3-1.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/10603798_10153226422607761_3631755225023624732_n.jpg?oh=16adb8e8d58f0730d4804b3a3ccf2d0d&oe=5714BCDA" width=320>
 
 
 All of the options I'd seen involved using every single pin of an arduino to light the logic panels on the dome.  Unfortunately, that removed the ability to do anything more interesting with the lighting, because you'd very quickly run out of PWM capable pins. So, I decided to create a version that utilizes shift registers to extend the capabilities a bit.
 
+<img src="https://scontent-iad3-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/920727_10153226421547761_8605656006124651485_o.jpg" width=320>
 I've created a parts list if you'd like to grab the components yourself.
 
 <a href="https://docs.google.com/spreadsheets/d/1KzJZGZxBMD4uZg5txSiHm7NLZ_BNpFicUeiCb588h9Q/edit#gid=0">Google Sheets Parts List for BB8 Internals</a>
