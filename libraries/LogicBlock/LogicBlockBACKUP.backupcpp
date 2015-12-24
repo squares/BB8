@@ -1,0 +1,74 @@
+#include "LogicBlock.h"
+
+#include "CShiftPWM.h"
+
+
+//<<constructor>>
+LogicBlock::LogicBlock(int sP, int nP, int m, int tV){
+	
+	numPins = nP;
+	startPin = sP;
+	mode = m;
+	timeoutValue = tV;
+  
+}
+
+//<< destructor >>
+LogicBlock::~LogicBlock(){/*nothing to destruct?*/}
+
+void LogicBlock::cycle(CShiftPWM ShiftPWM){
+	Serial.println("Running Logic Cycle");
+	
+	 if(this->mode == 0){
+      if(this->fadeValue < 255 && this->fadeDirection == 0){
+		if (this->numPins == 1){
+			ShiftPWM.SetOne(this->startPin, fadeValue);
+		} else if (numPins == 4){
+			ShiftPWM.SetGroupOf4(0,fadeValue,fadeValue,fadeValue,fadeValue,startPin);
+
+		} else if (this->numPins == 5) {      
+        	ShiftPWM.SetGroupOf5(0,fadeValue,fadeValue,fadeValue,fadeValue,fadeValue, startPin);
+		}
+        this->fadeValue++;
+      }
+      if(fadeValue == 255){
+        this->fadeDirection = 1;
+      }
+      // Fade out all outputs
+      if(fadeValue > 0 && fadeDirection == 1){
+		if (this->numPins == 1){
+			ShiftPWM.SetOne(this->startPin, fadeValue);
+		} else if (numPins == 4){
+			ShiftPWM.SetGroupOf4(0,fadeValue,fadeValue,fadeValue,fadeValue,startPin);
+		} else if (this->numPins == 5) { 
+        	ShiftPWM.SetGroupOf5(0,fadeValue,fadeValue,fadeValue,fadeValue,fadeValue,startPin);
+		}
+        this->fadeValue--;
+      }
+      if(fadeValue == 50){
+        this->fadeDirection = 0;
+      }
+   }
+   else if (this->mode == 1){
+	  
+      randomPin = random(this->startPin,this->startPin+this->numPins);
+      ShiftPWM.SetOne(randomPin, 0);
+      randomPin = random(this->startPin,this->startPin+this->numPins);
+      ShiftPWM.SetOne(randomPin, maxBrightness);
+
+      
+   }
+    else if (this->mode == 2){
+	// EVERYTHING OFF  
+
+      ShiftPWM.SetAll(0);
+   } else {
+	   // do nothing
+   }
+    
+}
+
+int LogicBlock::getTimeout(){
+	return this->timeoutValue;
+}
+
