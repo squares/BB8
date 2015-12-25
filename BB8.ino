@@ -27,7 +27,7 @@ Thread randomizerThread = Thread(); // Controls random display in one of the clu
 // Random vars
 int randomizerTimeout = random(3000,5000);
 
-// AUDIO analysis
+// AUDIO analysis - Reserved for future use.
 int sensorPin = 8;
 int sensorValue = 0;
 
@@ -39,7 +39,8 @@ int sensorValue = 0;
   int HoloRedPin = 21;
   int HoloGreenPin = 22;
   int HoloBluePin = 23;
-  
+
+  int PSITimeout = random(1000,9000);
   int PSIColor = 1; // 0 - Blue; 1 - White
   int HoloRedTarget = 255;
   int HoloGreenTarget = 255;
@@ -50,11 +51,11 @@ int sensorValue = 0;
 
 
 // SHIFTPWM SETTINGS
-  const int ShiftPWM_latchPin=11; // YELLOW
+  const int ShiftPWM_latchPin=8; // YELLOW
 // ATTEMPING TO FREE UP SPI FOR SD CARD READER
   #define SHIFTPWM_NOSPI
-  const int ShiftPWM_dataPin = 10; // BLUE
-  const int ShiftPWM_clockPin = 9; // GREEN 
+  const int ShiftPWM_dataPin = 4; // BLUE
+  const int ShiftPWM_clockPin = 5; // GREEN 
   const bool ShiftPWM_invertOutputs = false; 
   const bool ShiftPWM_balanceLoad = false;
 #include <ShiftPWM.h>   // include ShiftPWM.h after setting the pins!
@@ -72,7 +73,8 @@ void setup(){
   ShiftPWM.Start(pwmFrequency,maxBrightness);
 
   // SET UP ALL OF THE THREADS
-  // Removed psi thread... controlled by analog audio sensor
+  psiThread.setInterval(PSITimeout);
+  psiThread.onRun(PSIColorChange);
   
   holoThread.setInterval(5);
   holoThread.onRun(updateHolo);
@@ -93,6 +95,7 @@ void setup(){
   randomizerThread.onRun(randomizer);
 
 // ADD THREADS TO THREAD CONTROLLER
+  controller.add(&psiThread);
   controller.add(&logic1Thread); 
   controller.add(&logic2Thread);
   controller.add(&logic3Thread);
@@ -105,13 +108,7 @@ void setup(){
 void loop()
 { 
   // get Audio Sensor value, and adjust PSI color accordingly.
-  sensorValue = analogRead(sensorPin);
-  if (sensorValue < 200){
-    PSIColor = 1;
-  } else {
-    PSIColor = 0;
-  }
-  PSIColorChange();
+
   controller.run();  // Check/run all threaded processes.
 
 }
@@ -161,13 +158,18 @@ void PSIColorChange(){
                 ShiftPWM.SetOne(PSIRedPin,255);
                 ShiftPWM.SetOne(PSIGreenPin,255);
                 ShiftPWM.SetOne(PSIBluePin,255);
+                PSIColor = 2;
                 break;
       default : //Serial.println("going blue");
                 ShiftPWM.SetOne(PSIRedPin,0); //(GREEN OFF) 
                 ShiftPWM.SetOne(PSIGreenPin,0); //(RED OFF) 
                 ShiftPWM.SetOne(PSIBluePin,255);
+                PSIColor = 1;
                 break;
   }
+  // reset random light change timer
+  PSITimeout = random(1000,9000);
+  psiThread.setInterval(PSITimeout);
  
 }
 
@@ -210,7 +212,7 @@ void resetAllToPulsing() {
 }
 
 void randomizer(){
-  Serial.println("randomizing");
+  
   logic1.setMode(random(0,3));
     logic2.setMode(random(0,3));
       logic3.setMode(random(0,3));
