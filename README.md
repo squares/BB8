@@ -1,3 +1,15 @@
+//
+UPDATE 2015-12-27
+
+For whatever reason, git desktop decided not to push up the stl's and the png that contains the breadboard layout version of the schematic.  I corrected that and those files are now available.  A couple of things about the breadboard layout:
+
+* - Don't use 220ohm resistors on the entire RGB LED.  Every RGB LED I've seen uses something different.  Mine took 100ohm resistors on the green and blue pins.  Just check the data sheet for whatever you buy.
+* - The diagram also doesn't show the power indicator LED.  This is totally optional, but I like being able to verify that the board is getting power.
+* - This can be compressed significantly, using the board I show in the parts list. Look at either of the Board images in the images folder for an example.  Board2 is the latest approach, and allows you to create a wiring harness with the common cathode pin glued to the anodes.  This way, you can just plug in the entire block and not have to fiddle with it.  This version also requires less soldering.  I'll put up a picture of the solder points shortly.
+* - Last but not least... just wanted to add a quick note that you probably shouldn't run this off the 5v pin. I do.. and my LEDs are BRIGHT.  But I have no idea what that's going to do to the life of my LEDs.  I imagine they will burn out quicker, but I run my board infrequently enough that I won't mind printing and replacing the LED harnesses eventually. Anyway, just wanted to drop a note about that consideration.
+
+//
+
 If you've found this repo, you're interested in adding internal electronics to your BB8 Dome.
 <img src="https://scontent-iad3-1.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/10603798_10153226422607761_3631755225023624732_n.jpg?oh=16adb8e8d58f0730d4804b3a3ccf2d0d&oe=5714BCDA" width=320>
 
