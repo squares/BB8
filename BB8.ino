@@ -34,11 +34,11 @@ int sensorValue = 0;
 // RGB VARS - Note, these pin references are to pins in the lighting rig, not the arduino.
   int PSIRedPin = 16;
   int PSIGreenPin = 17;
-  int PSIBluePin = 20;
+  int PSIBluePin = 18;
   
-  int HoloRedPin = 21;
-  int HoloGreenPin = 22;
-  int HoloBluePin = 23;
+  int HoloRedPin = 19;
+  int HoloGreenPin = 20;
+  int HoloBluePin = 21;
 
   int PSITimeout = random(1000,9000);
   int PSIColor = 1; // 0 - Blue; 1 - White
