@@ -51,11 +51,11 @@ int sensorValue = 0;
 
 
 // SHIFTPWM SETTINGS
-  const int ShiftPWM_latchPin=8; // YELLOW
+  const int ShiftPWM_latchPin=22; // YELLOW
 // ATTEMPING TO FREE UP SPI FOR SD CARD READER
   #define SHIFTPWM_NOSPI
-  const int ShiftPWM_dataPin = 4; // BLUE
-  const int ShiftPWM_clockPin = 5; // GREEN 
+  const int ShiftPWM_dataPin = 24; // BLUE
+  const int ShiftPWM_clockPin = 26; // GREEN 
   const bool ShiftPWM_invertOutputs = false; 
   const bool ShiftPWM_balanceLoad = false;
 #include <ShiftPWM.h>   // include ShiftPWM.h after setting the pins!
