@@ -1,3 +1,12 @@
+// ROAD MAP //
+
+Version 1.0 - Complete
+Version 2.0 - Sound Module - Will include randomized sounds that play at randomized intervals.  Perhaps integrate an external power switch.
+Version 3.0 - External stimulus for sound module - Considering IR, zigbee, wifi, raspberry pi interface, others.
+Version 4.0 - Likely final - Will provide open ends for communication with external components (body, other network devices)... Perhaps moving the audio out of the dome into the body.
+
+
+
 //
 UPDATE 2015-12-27
 
