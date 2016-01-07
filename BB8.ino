@@ -1,7 +1,4 @@
-// 4 - BLUE
-// 5 - YELLOW
-// 8 - GREEN
-
+// BB-8 Lighting code - Version 1.0
 
 #include <Thread.h>
 #include <ThreadController.h>
