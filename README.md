@@ -11,6 +11,13 @@ Version 4.0 - Likely final - Will provide open ends for communication with exter
 
 
 //
+UPDATE 2016-01-12
+
+Patrick Stefanski was awesome enough to design a modified dome plate and a holder.  This allows you to secure the USB power brick vertically inside of the dome and provides access to the charging port (and slightly useful power-test button) on the bottom of the USB charger.
+
+Once I find time, I'm going to attempt to hack together a power switch onto a USB cable and drop another hole next to this so you can turn the lights on and off without ever having to open up the dome.
+
+
 UPDATE 2015-12-27
 
 For whatever reason, git desktop decided not to push up the stl's and the png that contains the breadboard layout version of the schematic.  I corrected that and those files are now available.  A couple of things about the breadboard layout:
