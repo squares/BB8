@@ -2,6 +2,8 @@
 
 Version 1.0 - Complete
 
+-->  CURRENT 1.5  - I have sound sort of working.  I'm trying to get this working in the least intrusive way possible. Ideally, you'll be able to just buy a wave shield from adafruit and slam it into the top of the arduino and be done with it. That's the hope anyway.
+
 Version 2.0 - Sound Module - Will include randomized sounds that play at randomized intervals.  Perhaps integrate an external power switch.
 
 Version 3.0 - External stimulus for sound module - Considering IR, zigbee, wifi, raspberry pi interface, others.
