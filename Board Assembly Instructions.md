@@ -220,6 +220,17 @@ If all of the above is correct, you likely have a short in your soldering job so
 
 Any issue with the LED not coming on is going to be a problem with soldering or grounding.  Step through each path that current is supposed to flow, and verify that there is a solid solder connection.  Also, make sure that everything is grounded correctly, and that all of the common ground rails are connected.
 
+* - Lights come on, and there IS animation, but it's weird:
+
+First, let's describe what "weird" is.  When you first power on the board (assuming you have it connected to the arduino, and have successfully uploaded the code)... The logic lights should pulse two to three times (fade from dark to light and back).  The radar eye should be solid red... and the holo and psi should be on solid.  After about 2-3 seconds, the logic lens lights should randomly shift to different animations.  These could either be random lights lighting up, or fading, or some combination of those.  The radar eye should still be solid.  The PSI will either be blue or white... and the holo will be slowly fading through random colors.
+
+See something different?  Are the lights all flickering in unison?  Is the holo solid red(or green or blue), and not changing? Is the PSI red or green? IS THE RED RADAR LED FLICKING OR FADING (that's a big one).  If any of the previous are true, this can be considered "weird". 99.99999999% of the time, this is due to a short in the soldering.  If you've followed the instructions precisely, and all of the wires are connected to the right parts of the shift registers, then it's almost definite that you have a short between solder points.  The only way to fix this (sadly), is to take out a magnifying glass and go from point to point ensuring that things that SHOULD be connected ARE connected, and things that SHOULDN'T be connected AREN'T. It's also helpful to review the points to ensure you have a good solder joint.
+
+For more on common issues with soldering, check out this helpful guide:
+https://learn.adafruit.com/adafruit-guide-excellent-soldering/common-problems
+
+Again... this is relatively small work, and it requires a steady hand and clean soldering work.
+
 * - Other:
 
 Throw me an email at strong.s@gmail.com and we can try to work through it.  The schematic and parts I have are exactly what I've used to make this work, so it should be easy to sort something out quickly over a skype call.
